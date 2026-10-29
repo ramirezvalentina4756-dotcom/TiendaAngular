@@ -1,0 +1,40 @@
+@let totalProductos = productosFiltrados.length;
+
+<!-- Componente de búsqueda -->
+<app-search-box (buscar)="onBuscar($event)"></app-search-box>
+
+<!-- Filtros de categoría -->
+<div class="filtros-categoria">
+  <button 
+    [class.activo]="categoriaSeleccionada === ''" 
+    (click)="seleccionarCategoria('')">
+    Todas
+  </button>
+
+  @for (cat of categorias; track cat) {
+    <button 
+      [class.activo]="categoriaSeleccionada === cat" 
+      (click)="seleccionarCategoria(cat)">
+      {{ cat }}
+    </button>
+  }
+</div>
+
+<!-- Indicador de total de productos mediante la variable local de @let -->
+<p class="total-contador">Mostrando {{ totalProductos }} productos</p>
+
+<!-- Renderizado de la lista de productos filtrados -->
+<div class="productos-lista">
+  @for (producto of productosFiltrados; track producto.id) {
+    <!-- Aquí utilizas tu componente de tarjeta o contenido -->
+    <div class="tarjeta-producto">
+      <h3>{{ producto.nombre }}</h3>
+      <p>Marca: {{ producto.marca }}</p>
+      <p>Precio: ${{ producto.precio }}</p>
+      <app-stock-label [stock]="producto.stock"></app-stock-label>
+    </div>
+  } @empty {
+    <!-- Mensaje cuando la búsqueda no devuelve nada -->
+    <p class="mensaje-vacio">No se encontraron productos que coincidan con la búsqueda.</p>
+  }
+</div>

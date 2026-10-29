@@ -1,0 +1,62 @@
+.filtros-categoria {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+
+  button {
+    background-color: #e2e8f0;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #cbd5e1;
+    }
+
+    &.activo {
+      background-color: #2563eb;
+      color: white;
+    }
+  }
+}
+
+.productos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tarjeta-producto {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #64748b;
+  }
+}
+
+.mensaje-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #64748b;
+  font-weight: 500;
+}

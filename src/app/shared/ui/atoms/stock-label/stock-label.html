@@ -1,0 +1,11 @@
+@switch (true) {
+  @case (stock === 0) {
+    <span class="badge sin-stock">Sin stock</span>
+  }
+  @case (stock > 0 && stock <= 5) {
+    <span class="badge pocas-unidades">Pocas unidades ({{ stock }})</span>
+  }
+  @default {
+    <span class="badge disponible">Disponible ({{ stock }})</span>
+  }
+}
